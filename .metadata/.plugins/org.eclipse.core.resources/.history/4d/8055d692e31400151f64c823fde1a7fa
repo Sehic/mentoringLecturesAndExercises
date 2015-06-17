@@ -1,0 +1,17 @@
+package ba.bitcamp.hajrudin.programming.example;
+
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		System.out.println("Enter number of cards");
+		int numOfCars = input.nextInt();
+		System.out.println("Do you want jokers in deck: Yes/No");
+		String joker = input.nextLine();
+		System.out.println("How many decks you want?");
+		int numOfDecks = input.nextInt();
+	}
+
+}

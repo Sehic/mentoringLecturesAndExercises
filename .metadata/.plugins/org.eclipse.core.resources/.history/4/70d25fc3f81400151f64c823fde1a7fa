@@ -1,0 +1,44 @@
+package ba.bitcamp.hajrudin.programming.example;
+
+import java.util.Arrays;
+
+public class Player {
+	private String name;
+	private Card [] playerCards;
+	
+	
+	
+	public Player(String name) {
+		this.name = name;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public Card[] getPlayerCards() {
+		return playerCards;
+	}
+	
+	public void setCards(int length){
+		this.playerCards=new Card [length+1];
+	}
+	public void setPlayerCards(int index, Card playerCards) {
+		this.playerCards[index] = playerCards;
+	}
+	
+	public String toString() {
+		String s = "";
+		s = "Player name: "+name+"\n";
+		s+= "Player cards: \n";
+		for(int i = 0; i<playerCards.length;i++){
+			s+=playerCards[i].getCard()+"\n";
+		}
+		return s;
+	}
+	
+	
+	
+	
+}

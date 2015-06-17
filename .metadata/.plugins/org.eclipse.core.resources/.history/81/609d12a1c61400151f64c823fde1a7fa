@@ -1,0 +1,15 @@
+package ba.bitcamp.hajrudin.programming.example;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Card c1 = new Card(10, 0);
+		Card c2 = new Card(12, 3);
+		Card c3 = new Card(13, 2);
+		c1.getCard(c1);
+		c2.getCard(c2);
+		c3.getCard(c3);
+
+	}
+
+}

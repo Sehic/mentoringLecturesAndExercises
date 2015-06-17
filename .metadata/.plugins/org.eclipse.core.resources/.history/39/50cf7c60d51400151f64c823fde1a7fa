@@ -1,0 +1,10 @@
+package ba.bitcamp.hajrudin.programming.example;
+
+public class Main {
+
+	public static void main(String[] args) {
+			Deck d1 = new Deck(52);
+			System.out.println(d1.toString());
+		}
+
+}

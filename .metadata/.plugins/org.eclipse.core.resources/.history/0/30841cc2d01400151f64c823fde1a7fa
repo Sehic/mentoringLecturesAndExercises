@@ -1,0 +1,44 @@
+package ba.bitcamp.hajrudin.programming.example;
+
+public class Card {
+	private int value;
+	private int suit;
+	
+	public Card(int value, int suit) throws Exception {
+		if(value > 13 || value < 1 || suit < 0 || suit >3){
+			throw new Exception();
+		} else {
+		this.value = value;
+		this.suit = suit;
+		}
+	}
+	
+	public String getCard (){
+		String s = "";
+		switch (this.suit){
+		case 0: s = "Heart ";
+		break;
+		case 1: s = "Spade ";
+		break;
+		case 2: s = "Diamond ";
+		break;
+		case 3: s = "Club ";
+		break;
+		}
+		switch (this.value){
+		case 11: s+="Jeck";
+		break;
+		case 12: s+="Queen";
+		break;
+		case 13: s+="King";
+		break;
+		default:
+			s+= s.valueOf(this.value);
+			break;
+		}
+		return s;
+	}
+		
+	
+	
+}

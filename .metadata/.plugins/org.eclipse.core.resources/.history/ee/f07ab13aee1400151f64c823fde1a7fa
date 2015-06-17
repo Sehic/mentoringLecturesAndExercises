@@ -1,0 +1,19 @@
+package ba.bitcamp.hajrudin.programming.example;
+
+public class Hand {
+	private Card [] cards;
+	private int holdingCards;
+	private Player [] players;
+	
+	public Hand(int numOfCards) {
+		this.cards=new Card [numOfCards+1];
+		this.holdingCards=numOfCards;
+	}
+	
+	public void dealCards(Deck d,int numOfPlayers){
+		for(int i = 0; i<numOfPlayers;i++){
+			
+		}
+	}
+	
+}

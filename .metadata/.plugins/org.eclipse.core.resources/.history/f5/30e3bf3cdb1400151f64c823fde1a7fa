@@ -1,0 +1,16 @@
+package ba.bitcamp.hajrudin.programming.example;
+
+import ba.bitcamp.hajrudin.nasljedjivanje.Employee;
+import ba.bitcamp.hajrudin.nasljedjivanje.SalaryEmployee;
+
+public class Main {
+
+	public static void main(String[] args) {
+			Employee e = new Employee("John" , "Male");
+			System.out.println(e);
+			
+			SalaryEmployee se = new SalaryEmployee("Sue", "Female", 500);
+			System.out.println(se);
+	}
+
+}

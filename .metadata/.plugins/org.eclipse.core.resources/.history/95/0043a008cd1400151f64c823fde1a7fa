@@ -1,0 +1,28 @@
+package ba.bitcamp.hajrudin.programming.example;
+
+public class Deck {
+	private Card [] cards;
+
+	public Deck(int numOfCards) {
+		this.cards = new Card [numOfCards];
+		for(int i = 0; i<this.cards.length; i++){
+			for(int j = 1; j<14; j++){
+				for(int z = 0; z<4; z++){
+					try{
+					cards[i]=new Card(j, z);
+					}catch(Exception e){
+						System.out.println("Wrong card");
+					}
+				}
+			}
+		}
+	}
+	
+	public String toString(){
+		String s = "";
+		for(int i =0; i<cards.length;i++){
+			s+=cards[i].getCard()+"\n";
+		}
+		return s;
+	}
+}

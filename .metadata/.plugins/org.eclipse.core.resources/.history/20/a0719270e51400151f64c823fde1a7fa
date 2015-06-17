@@ -1,0 +1,41 @@
+package ba.bitcamp.hajrudin.programming.example;
+
+public class Deck {
+	private Card [] cards;
+
+	public Deck(int numOfCards, String joker, int numOfDecks) {
+		if(joker.equalsIgnoreCase("yes")){
+			this.cards = new Card [numOfCards+(numOfDecks*2)];//*2 is 2 places in array for jokers
+			for(int i = cards.length-(numOfDecks*2)-1;i<cards.length;i++){
+				this.cards[i]=new Card();
+			}
+		}else {
+		this.cards = new Card [numOfCards];
+		}
+		int i = 0;
+		do{
+		
+			for(int j = 1; j<14; j++){
+					try{
+					cards[i++]=new Card(j, Card.HEART);
+					cards[i++]=new Card(j, Card.DIAMOND);
+					cards[i++]=new Card(j, Card.CLUB);
+					cards[i++]=new Card(j, Card.SPADE);
+					}catch(Exception e){
+						System.out.println("Wrong card");
+					}
+				}
+			if(joker.equalsIgnoreCase("yes")){
+				i+=2;
+			}
+			}while(i<this.cards.length*numOfDecks);
+	}
+	
+	public String toString(){
+		String s = "";
+		for(int i =0; i<cards.length;i++){
+			s+=cards[i].getCard()+"\n";
+		}
+		return s;
+	}
+}

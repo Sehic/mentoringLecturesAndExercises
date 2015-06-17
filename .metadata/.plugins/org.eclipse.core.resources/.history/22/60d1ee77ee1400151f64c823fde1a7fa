@@ -1,0 +1,7 @@
+package ba.bitcamp.hajrudin.programming.example;
+
+public class Player {
+	private String name;
+	private Hand playerCards;
+	
+}

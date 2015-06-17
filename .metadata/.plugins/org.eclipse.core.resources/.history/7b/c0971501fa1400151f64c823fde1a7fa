@@ -1,0 +1,78 @@
+package ba.bitcamp.hajrudin.programming.example;
+
+import java.util.Random;
+
+public class Deck {
+	private Card [] cards;
+	private int cardsInDeck;
+
+	public Deck(int numOfCards, String joker, int numOfDecks) {
+		if(joker.equalsIgnoreCase("yes")){
+			int length = (numOfCards*numOfDecks)+(numOfDecks*2);
+			this.cards = new Card [length];//*2 is places in array for jokers
+			for(int i = cards.length-(numOfDecks*2)-1;i<cards.length;i++){
+				this.cards[i]=new Card();
+			}
+			generateDeck(length-(numOfDecks*2));
+		}else {
+		this.cards = new Card [numOfCards*numOfDecks];
+		generateDeck(cards.length);
+		}
+		
+	}
+	
+	public void generateDeck(int length){
+		int i = 0;
+		do{
+			for(int j = 1; j<14; j++){
+					try{
+					cards[i++]=new Card(j, Card.HEART);
+					cards[i++]=new Card(j, Card.DIAMOND);
+					cards[i++]=new Card(j, Card.CLUB);
+					cards[i++]=new Card(j, Card.SPADE);
+					}catch(Exception e){
+						System.out.println("Wrong card");
+					}
+				}
+			}while(i<length);
+	}
+	
+	public void shuffle(){
+		Random rand = new Random();
+		for(int i = 0; i<cards.length;i++){
+			int first = rand.nextInt(cards.length);
+			int second = rand.nextInt(cards.length);
+			Card temp = cards[first];
+			cards[first]=cards[second];
+			cards[second]=temp;
+		}
+	}
+
+	public void dealCards(int numOfCards, Player[] players){
+		
+		int i = cards.length-1;
+		int temp = numOfCards*players.length;
+		int temp2=0;
+		do{
+			for(int j = 0; j<players.length;j++){
+				players[j].setPlayerCards(temp2,this.cards[i]);
+				this.cards[i]=null;
+				i--;
+				temp2++;
+			}
+		}while(temp2<temp);
+		players[0].setPlayerCards(players[0].getPlayerCards().length-1, this.cards[i]);
+		this.cards[i]=null;
+		i--;
+		this.cardsInDeck=i;
+		
+	}
+	
+	public String toString(){
+		String s = "";
+		for(int i =0; i<cards.length;i++){
+			s+=this.cards[i].getCard()+"\n";
+		}
+		return s;
+	}
+}

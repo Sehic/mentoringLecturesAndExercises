@@ -1,0 +1,44 @@
+package ba.bitcamp.hajrudin.programming.example;
+
+public class Card {
+	private int value;
+	private int suit;
+	
+	public Card(int value, int suit) {
+		if(value > 13 || value < 1 || suit < 0 || suit >3){
+			System.out.println("Wrong input");
+		} else {
+		this.value = value;
+		this.suit = suit;
+		}
+	}
+	
+	public String getCard (Card c){
+		String s = "";
+		switch (c.suit){
+		case 0: s = "Heart ";
+		break;
+		case 1: s = "Spade ";
+		break;
+		case 2: s = "Diamond ";
+		break;
+		case 3: s = "Club ";
+		break;
+		}
+		switch (c.value){
+		case 11: s+="Jeck";
+		break;
+		case 12: s+="Queen";
+		break;
+		case 13: s+="King";
+		break;
+		default:
+			s+= s.valueOf(c.value);
+			break;
+		}
+		return s;
+	}
+		
+	
+	
+}

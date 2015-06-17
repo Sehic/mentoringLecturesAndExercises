@@ -1,0 +1,13 @@
+package ba.bitcamp.hajrudin.programming.example;
+
+public class Main {
+
+	public static void main(String[] args) {
+			Employee e = new Employee("John" , "Male");
+			System.out.println(e);
+			
+			SalaryEmployee se = new SalaryEmployee("Sue", "Female", 500);
+			System.out.println(se);
+	}
+
+}
