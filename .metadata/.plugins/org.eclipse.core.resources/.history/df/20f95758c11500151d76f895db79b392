@@ -3,11 +3,7 @@ package ba.bitcamp.hajrudin.programming.example;
 import java.util.Scanner;
 
 public class Main {
-	//Pokusavam napraviti program za kartasku igru remi
-    //Program trenutno inicijalizira dva spila za remi. Pita korisnika koliko ce igraca igrati i unos imena igraca.
-	//Podijeli karte prvi put svakom igracu po 14, prvom jedna vise.
-	//Sortira karte od svakog igraca radi lakseg pregleda
-	//Nastavak uskoro :)
+//Program trenutno radi za kartasku igru remi.
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 		//System.out.println("Enter number of cards (One deck have 52 cards)");
