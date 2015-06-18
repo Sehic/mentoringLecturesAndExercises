@@ -1,0 +1,28 @@
+package ba.bitcamp.hajrudin.inheritance.and.polymorphism.exercise;
+
+public class StationaryComputer extends PersonalComputer{
+	private double procesorSpeed;
+	private int power;
+	private int hardDisc;
+	
+	public double getProcesorSpeed() {
+		return procesorSpeed;
+	}
+	public void setProcesorSpeed(double procesorSpeed) {
+		this.procesorSpeed = procesorSpeed;
+	}
+	public int getPower() {
+		return power;
+	}
+	public void setPower(int power) {
+		this.power = power;
+	}
+	public int getHardDisc() {
+		return hardDisc;
+	}
+	public void setHardDisc(int hardDisc) {
+		this.hardDisc = hardDisc;
+	}
+	
+	
+}

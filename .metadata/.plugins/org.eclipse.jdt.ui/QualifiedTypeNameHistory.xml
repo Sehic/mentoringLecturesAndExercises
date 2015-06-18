@@ -1,2 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.lang.SafeVarargs"/>
+<fullyQualifiedTypeName name="ba.bitcamp.hajrudin.programming.example.SalaryEmployee"/>
+<fullyQualifiedTypeName name="ba.bitcamp.hajrudin.programming.example.Employee"/>
+<fullyQualifiedTypeName name="ba.bitcamp.hajrudin.programming.example.HourlyEmployee"/>
+<fullyQualifiedTypeName name="java.util.Scanner"/>
+<fullyQualifiedTypeName name="ba.bitcamp.hajrudin.programming.example.Card"/>
+<fullyQualifiedTypeName name="ba.bitcamp.hajrudin.programming.example.Deck"/>
+<fullyQualifiedTypeName name="java.util.Random"/>
+<fullyQualifiedTypeName name="ba.bitcamp.hajrudin.programming.example.Player"/>
+<fullyQualifiedTypeName name="java.lang.Exception"/>
+<fullyQualifiedTypeName name="java.util.Arrays"/>
+</qualifiedTypeNameHistroy>

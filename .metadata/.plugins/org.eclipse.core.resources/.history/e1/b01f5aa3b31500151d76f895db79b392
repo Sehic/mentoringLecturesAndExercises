@@ -1,0 +1,9 @@
+package ba.bitcamp.hajrudin.inheritance.and.polymorphism.exercise;
+
+public class StationaryComputer extends PersonalComputer{
+	private double procesorSpeed;
+	private int power;
+	private int hardDisc;
+	
+	
+}

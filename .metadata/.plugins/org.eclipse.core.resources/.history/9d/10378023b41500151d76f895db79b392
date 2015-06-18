@@ -1,0 +1,8 @@
+package ba.bitcamp.hajrudin.inheritance.and.polymorphism.exercise;
+
+public class PortableComputer extends PersonalComputer{
+	private int weight;
+	private int display;
+	private boolean hasWifi;
+	
+}

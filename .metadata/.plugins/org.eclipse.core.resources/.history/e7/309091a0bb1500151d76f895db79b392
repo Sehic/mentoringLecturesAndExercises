@@ -1,0 +1,15 @@
+package ba.bitcamp.hajrudin.inheritance.and.polymorphism.exercise;
+
+public class Main {
+	public static void main(String[] args) {
+		DesktopComputer d = new DesktopComputer();
+		System.out.println(d.toString());
+		Laptop l = new Laptop();
+		System.out.println(l.toString());
+		PocketPC pp = new PocketPC();
+		System.out.println(pp.toString());
+		Workstation w = new Workstation();
+		System.out.println(w.toString());
+	}
+	
+}

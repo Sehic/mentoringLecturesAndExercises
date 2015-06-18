@@ -1,0 +1,9 @@
+package ba.bitcamp.hajrudin.inheritance.and.polymorphism.exercise;
+
+public class Main {
+	public static void main(String[] args) {
+		DesktopComputer d = new DesktopComputer();
+		System.out.println(d.toString());
+	}
+	
+}
