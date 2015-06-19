@@ -1,0 +1,14 @@
+package ba.bitcamp.hajrudin.thiis.and.supeer;
+
+public class IgrajPogodiBroj extends PogodiBroj{
+	private int brojPokusaja;
+
+	public IgrajPogodiBroj(int maxBroj, int maxBrojPokusaja) {
+		super(maxBroj, maxBrojPokusaja);
+		this.brojPokusaja = 0;
+	}
+	
+	
+	
+	
+}

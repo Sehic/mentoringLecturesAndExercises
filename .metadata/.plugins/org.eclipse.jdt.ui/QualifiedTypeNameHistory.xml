@@ -11,4 +11,13 @@
 <fullyQualifiedTypeName name="ba.bitcamp.hajrudin.programming.example.Player"/>
 <fullyQualifiedTypeName name="java.lang.Exception"/>
 <fullyQualifiedTypeName name="java.util.Arrays"/>
+<fullyQualifiedTypeName name="ba.bitcamp.hajrudin.inheritance.and.polymorphism.University"/>
+<fullyQualifiedTypeName name="ba.bitcamp.hajrudin.inheritance.and.polymorphism.Building"/>
+<fullyQualifiedTypeName name="ba.bitcamp.hajrudin.inheritance.and.polymorphism.exercise.Laptop"/>
+<fullyQualifiedTypeName name="ba.bitcamp.hajrudin.inheritance.and.polymorphism.exercise.PocketPC"/>
+<fullyQualifiedTypeName name="ba.bitcamp.hajrudin.inheritance.and.polymorphism.exercise.Workstation"/>
+<fullyQualifiedTypeName name="ba.bitcamp.hajrudin.inheritance.and.polymorphism.exercise.DesktopComputer"/>
+<fullyQualifiedTypeName name="ba.bitcamp.hajrudin.inheritance.and.polymorphism.exercise.PortableComputer"/>
+<fullyQualifiedTypeName name="ba.bitcamp.hajrudin.inheritance.and.polymorphism.exercise.PersonalComputer"/>
+<fullyQualifiedTypeName name="ba.bitcamp.hajrudin.inheritance.and.polymorphism.exercise.StationaryComputer"/>
 </qualifiedTypeNameHistroy>

@@ -27,6 +27,14 @@ public class Player {
 	public void setPlayerCards(int index, Card playerCards) {
 		this.playerCards[index] = playerCards;
 	}
+	
+	public Card getPlayerCard(int index){
+		return this.playerCards[index];
+	}
+	
+	public void setPlayerCard(int i, Card c){
+		this.playerCards[i]=c;
+	}
 
 	public void sort(){
 		Arrays.sort(this.playerCards);
@@ -34,11 +42,11 @@ public class Player {
 	
 	public String toString() {
 		String s = "";
-		s = "Player name: "+this.name+"\n";
-		s+= "Player cards: \n";
+		//s = "Player name: "+this.name+"\n";
+		s+= "Your cards: \n";
 		try{
 		for(int i = 0; i<this.playerCards.length;i++){
-			s+=(i+1)+this.playerCards[i].getCard()+"\n";
+			s+=(i+1)+". "+this.playerCards[i].getCard()+"\n";
 		}
 		}catch(Exception e){
 			s+="";

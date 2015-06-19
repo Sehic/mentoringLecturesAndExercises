@@ -1,0 +1,16 @@
+package ba.bitcamp.hajrudin.programming.example;
+
+public class Hand{
+	private Card [] cards;
+
+	public Hand(Card[] cards) {
+		super();
+		this.cards = cards;
+	}	
+	
+	public boolean playRemi(){
+		
+		return true;
+	}
+	
+}

@@ -5,7 +5,12 @@ import java.util.Random;
 public class Deck {
 	private Card [] cards;
 	private int cardsInDeck;
-
+/**
+ * Konstruktor s kojim se pravi spil karata za igru
+ * @param numOfCards oznacava broj karata s kojim ce se igrati
+ * @param joker korisnik bira da li zeli jokere u spilu
+ * @param numOfDecks broj spilova
+ */
 	public Deck(int numOfCards, String joker, int numOfDecks) {
 		if(joker.equalsIgnoreCase("yes")){
 			int length = (numOfCards*numOfDecks)+(numOfDecks*2);
@@ -21,6 +26,11 @@ public class Deck {
 		
 	}
 	
+	/**
+	 * Metoda za generisanje spila. Prethodni konstruktor je samo napravio niz 
+	 * Ova metoda stavlja karte u taj niz
+	 * @param length velicina niza
+	 */
 	public void generateDeck(int length){
 		int i = 0;
 		do{
@@ -37,6 +47,9 @@ public class Deck {
 			}while(i<length);
 	}
 	
+	/**
+	 * Metoda za mijesanje karti
+	 */
 	public void shuffle(){
 		Random rand = new Random();
 		for(int i = 0; i<cards.length;i++){
@@ -48,8 +61,16 @@ public class Deck {
 		}
 	}
 
-	public void dealCards(int numOfCards, Player[] players){
-		
+	
+	/**
+	 * Metoda za dijeljenje karti za igru REMI (PRVI PUT)
+	 * Dijeli se svakom igracu po 14 karti. Igracu na poziciji 0 se dijeli 15 karti.
+	 * @param numOfCards Broj karti za dijeljenje
+	 * @param players igraci
+	 * @return vraca karte koje su ostale u spilu iz kojeg se dijelilo igracima
+	 */
+	public Card [] dealCards(int numOfCards, Player[] players){
+		Card [] arr;
 		int i = cards.length-1;
 		int temp = numOfCards*players.length;
 		int temp2=0;
@@ -65,7 +86,12 @@ public class Deck {
 		this.cards[i]=null;
 		i--;
 		this.cardsInDeck=i;
-		
+		arr = new Card [this.cardsInDeck+1];
+		for(int j = 0; j<=this.cardsInDeck;j++){
+			arr[j]=this.cards[i];
+			i--;
+		}
+		return arr;
 	}
 	
 	public String toString(){

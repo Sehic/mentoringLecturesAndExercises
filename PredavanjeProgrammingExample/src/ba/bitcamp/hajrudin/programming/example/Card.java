@@ -30,6 +30,20 @@ public class Card implements Comparable<Card> {
 		
 	}
 	
+	public int getValue() {
+		return value;
+	}
+
+	public int getSuit() {
+		return suit;
+	}
+	
+	
+	
+	/**
+	 * Ova metoda sluzi za ljepsi ispis karte
+	 * @return vraca jedan string koji predstavlja kartu ispisanu u obliku npr HEART ACE
+	 */
 	public String getCard (){
 		String s = "";
 		switch (this.suit){

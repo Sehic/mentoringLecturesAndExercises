@@ -1,0 +1,9 @@
+package ba.bitcamp.hajrudin.thiis.and.supeer;
+
+public class PogodiBroj {
+	private int maxBroj;
+	private int maxBrojPokusaja;
+	
+	
+	
+}

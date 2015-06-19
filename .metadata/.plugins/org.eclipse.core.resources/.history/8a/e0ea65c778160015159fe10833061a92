@@ -1,0 +1,22 @@
+package ba.bitcamp.hajrudin.programming.example;
+
+public class Hand{
+	private Card [] cards;
+	private boolean hasWinner;
+
+	public Hand(Card[] cards) {
+		super();
+		this.cards = cards;
+		this.hasWinner=false;
+	}	
+	
+	public boolean playRemi(Player p){
+		
+		return true;
+	}
+	
+	public boolean getHasWinner(){
+		return this.hasWinner;
+	}
+	
+}
