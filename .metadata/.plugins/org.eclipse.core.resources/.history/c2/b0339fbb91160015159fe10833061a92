@@ -1,0 +1,12 @@
+package ba.bitcamp.hajrudin.thiis.and.supeer.exercise;
+
+public class Plant extends LifeForm{
+	
+	private static final int SMALL = 0;
+	private static final int SREDNJE = 1;
+	private static final int MNOGO = 2;
+	
+	private boolean isOtrovna;
+	private int quantity;
+	
+}	

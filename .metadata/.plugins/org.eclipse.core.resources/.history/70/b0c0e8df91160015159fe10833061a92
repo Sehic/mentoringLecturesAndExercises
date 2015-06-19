@@ -1,0 +1,21 @@
+package ba.bitcamp.hajrudin.thiis.and.supeer.exercise;
+
+public abstract class LifeForm {
+	private boolean isAlive;
+
+	public LifeForm(boolean isAlive) {
+		super();
+		this.isAlive = isAlive;
+	}
+
+	public boolean isAlive() {
+		return isAlive;
+	}
+
+	public void setAlive(boolean isAlive) {
+		this.isAlive = isAlive;
+	}
+	
+	
+	
+}

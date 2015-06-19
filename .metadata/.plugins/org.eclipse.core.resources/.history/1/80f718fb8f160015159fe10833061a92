@@ -1,0 +1,7 @@
+package ba.bitcamp.hajrudin.thiis.and.supeer.exercise;
+
+public class LifeForm {
+	private boolean isAlive;
+	
+	
+}

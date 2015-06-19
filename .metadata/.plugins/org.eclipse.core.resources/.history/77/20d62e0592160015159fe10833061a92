@@ -1,0 +1,45 @@
+package ba.bitcamp.hajrudin.thiis.and.supeer.exercise;
+
+public class Plant extends LifeForm{
+	
+	private static final int SMALL = 0;
+	private static final int MEDIUM = 1;
+	private static final int HARD = 2;
+	
+	private boolean isOtrovna;
+	private int quantity;
+	
+	public Plant(boolean isAlive, boolean isOtrovna, int quantity) {
+		super(isAlive);
+		this.isOtrovna = isOtrovna;
+		this.quantity = quantity;
+	}
+
+	public boolean isOtrovna() {
+		return isOtrovna;
+	}
+
+	public void setOtrovna(boolean isOtrovna) {
+		this.isOtrovna = isOtrovna;
+	}
+
+	public String getQuantity() {
+		String s = "";
+		switch(this.quantity){
+		case SMALL: s = "Small";
+		break;
+		case MEDIUM: s = "Medium";
+		break;
+		case HARD: s = "Hard";
+		break;
+		}
+		return s;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+	
+	
+	
+}	

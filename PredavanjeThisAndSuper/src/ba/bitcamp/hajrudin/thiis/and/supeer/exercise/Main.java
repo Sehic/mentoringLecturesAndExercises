@@ -1,0 +1,13 @@
+package ba.bitcamp.hajrudin.thiis.and.supeer.exercise;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Plant p1 = new Plant(true, true, 1);
+		System.out.println(p1);
+		
+		
+
+	}
+
+}
