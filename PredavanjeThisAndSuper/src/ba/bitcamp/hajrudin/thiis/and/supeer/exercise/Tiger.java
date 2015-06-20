@@ -41,8 +41,13 @@ public class Tiger extends Animal{
 			Zebra z = (Zebra) l;
 			switch(z.getstatus()){
 			case Zebra.ILL:
-				System.out.println("Tigar je pojeo bolesnu zebru i umro!");
-				this.setAlive(false);
+				System.out.println("Tigar je pojeo bolesnu zebru!");
+				this.setHealth((int)z.getWeight()/2);
+				if(this.getHealth()==0){
+					this.setAlive(false);
+					System.out.println("Tigar je bio los sa zadravljem i umro!");
+				}
+				
 			break;
 			case Zebra.HEALTY:
 				System.out.println("Tigar jede!");
@@ -50,8 +55,12 @@ public class Tiger extends Animal{
 				this.setStatus(EAT);
 			break;
 			default: 
-				System.out.println("Tigar je pojeo tesko bolesnu zebru i umro");
-				this.setAlive(false);
+				System.out.println("Tigar je pojeo tesko bolesnu zebru.");
+				this.setHealth((int)z.getWeight()/2);
+				if(this.getHealth()==0){
+					this.setAlive(false);
+					System.out.println("Tigar je bio los sa zadravljem i umro!");
+				}
 				break;
 			}
 		} else {

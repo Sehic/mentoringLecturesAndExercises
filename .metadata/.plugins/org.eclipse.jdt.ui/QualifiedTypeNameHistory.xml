@@ -20,4 +20,10 @@
 <fullyQualifiedTypeName name="ba.bitcamp.hajrudin.inheritance.and.polymorphism.exercise.PortableComputer"/>
 <fullyQualifiedTypeName name="ba.bitcamp.hajrudin.inheritance.and.polymorphism.exercise.PersonalComputer"/>
 <fullyQualifiedTypeName name="ba.bitcamp.hajrudin.inheritance.and.polymorphism.exercise.StationaryComputer"/>
+<fullyQualifiedTypeName name="ba.bitcamp.hajrudin.thiis.and.supeer.exercise.Animal"/>
+<fullyQualifiedTypeName name="ba.bitcamp.hajrudin.thiis.and.supeer.exercise.Tiger"/>
+<fullyQualifiedTypeName name="ba.bitcamp.hajrudin.thiis.and.supeer.exercise.Zebra"/>
+<fullyQualifiedTypeName name="java.lang.Override"/>
+<fullyQualifiedTypeName name="ba.bitcamp.hajrudin.thiis.and.supeer.exercise.LifeForm"/>
+<fullyQualifiedTypeName name="ba.bitcamp.hajrudin.thiis.and.supeer.exercise.Plant"/>
 </qualifiedTypeNameHistroy>

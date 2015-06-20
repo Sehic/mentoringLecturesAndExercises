@@ -55,16 +55,28 @@ public class Zebra extends Animal{
 				switch(p.getquantity()){
 				case Plant.HARD:
 					System.out.println("Zebra je pojela veoma hranjivu biljku");
+					this.setHealth(30);
 					break;
 				case Plant.MEDIUM:
 					System.out.println("Zebra je pojela srednje hranjivu biljku");
+					this.setHealth(20);
 					break;
 				default:
-					System.out.println("Zebra je pojela veoma malo hranjivu biljku");	
+					System.out.println("Zebra je pojela veoma malo hranjivu biljku");
+					this.setHealth(10);
 				}
 			}else{
-					System.out.println("Zebra je pojela otrovnu biljku i umrla!");
-					this.setAlive(false);
+					System.out.println("Zebra je pojela otrovnu biljku!");
+					if(p.getquantity()==Plant.HARD){
+						this.setHealth(-60);
+					}else if(p.getquantity()==Plant.MEDIUM){
+						this.setHealth(-40);
+					}else {
+						this.setHealth(-20);
+					}
+					if(this.getHealth()==0){
+						this.setAlive(false);
+					}
 				}
 				} else {
 					System.out.println("Zebra moze jesti samo zive biljke!");
