@@ -2,15 +2,15 @@ package ba.bitcamp.hajrudin.thiis.and.supeer.exercise;
 
 public class Zebra extends Animal{
 	
-	private static final int HEALTY = 0;
-	private static final int ILL = 1;
-	private static final int DEATH = 2;
+	protected static final int HEALTY = 0;
+	protected static final int ILL = 1;
+	protected static final int DEATH = 2;
 	
 	private int age;
 	private int status;
-	
-	public Zebra(boolean isAlive, int weight, int food, int age, int status) {
-		super(isAlive, weight, food);
+
+	public Zebra(boolean isAlive, int weight, int food, int age, int status, int health) {
+		super(isAlive, weight, food, health);
 		this.age = age;
 		this.status = status;
 	}
@@ -35,11 +35,43 @@ public class Zebra extends Animal{
 		}
 		return s;
 	}
+	
+	public int getstatus(){
+		return this.status;
+	}
 
 	public void setStatus(int status) {
 		this.status = status;
 	}
 
+	@Override
+	public void eat(LifeForm l){
+		if(this.isAlive()==false){
+			System.out.println("Zebra je mrtva!");
+		} else {
+			if(l instanceof Plant == true && l.isAlive()==true){
+				Plant p = (Plant) l;
+				if(p.isOtrovna()==false){
+				switch(p.getquantity()){
+				case Plant.HARD:
+					System.out.println("Zebra je pojela veoma hranjivu biljku");
+					break;
+				case Plant.MEDIUM:
+					System.out.println("Zebra je pojela srednje hranjivu biljku");
+					break;
+				default:
+					System.out.println("Zebra je pojela veoma malo hranjivu biljku");	
+				}
+			}else{
+					System.out.println("Zebra je pojela otrovnu biljku i umrla!");
+					this.setAlive(false);
+				}
+				} else {
+					System.out.println("Zebra moze jesti samo zive biljke!");
+				}
+		}
+	}
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

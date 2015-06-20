@@ -1,0 +1,15 @@
+package ba.bitcamp.hajrudin.thiis.and.supeer.exercise;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Plant p = new Plant(false, false, Plant.MEDIUM);
+		Animal t = new Tiger(true, 100, Animal.ANIMALS, Tiger.HOUNT, 50);
+		Zebra z = new Zebra(true, 100, Animal.PLANT, 10, Zebra.HEALTY);
+		
+		z.eat(p);
+		
+
+	}
+
+}

@@ -34,6 +34,8 @@ public abstract class LifeForm {
 		String s = "Is alive: "+this.isAlive+"\n";
 		return s;
 	}
+
+	public void eat(LifeForm l){}
 	
 	
 }

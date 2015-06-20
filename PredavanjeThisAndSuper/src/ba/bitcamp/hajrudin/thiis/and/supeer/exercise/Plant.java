@@ -2,9 +2,9 @@ package ba.bitcamp.hajrudin.thiis.and.supeer.exercise;
 
 public class Plant extends LifeForm{
 	
-	private static final int SMALL = 0;
-	private static final int MEDIUM = 1;
-	private static final int HARD = 2;
+	protected static final int SMALL = 0;
+	protected static final int MEDIUM = 1;
+	protected static final int HARD = 2;
 	
 	private boolean isOtrovna;
 	private int quantity;
@@ -22,7 +22,11 @@ public class Plant extends LifeForm{
 	public void setOtrovna(boolean isOtrovna) {
 		this.isOtrovna = isOtrovna;
 	}
-
+	
+	public int getquantity(){
+		return this.quantity;
+	}
+	
 	public String getQuantity() {
 		String s = "";
 		switch(this.quantity){

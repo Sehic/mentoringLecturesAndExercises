@@ -1,18 +1,44 @@
 package ba.bitcamp.hajrudin.thiis.and.supeer.exercise;
 
-public class Animal extends LifeForm{
+public abstract class Animal extends LifeForm{
 	
-	private static final int ANIMALS = 0;
-	private static final int PLANT = 1;
+	protected static final int ANIMALS = 0;
+	protected static final int PLANT = 1;
 	
 	private int weight;
 	private int food;
+	private int health;
 	
-	public Animal(boolean isAlive, int weight, int food) {
+	public Animal(boolean isAlive, int weight, int food, int health) {
 		super(isAlive);
 		this.weight = weight;
 		this.food = food;
+		if(health<=0){
+			this.health=0;
+			this.setAlive(false);
+		} else if(health>=100){
+			this.health=100;
+		} else {
+		this.health=health;
+		}
 	}
+	
+	public int getHealth() {
+		return health;
+	}
+
+	public void setHealth(int health) {
+		if(health<=0){
+			this.health=0;
+			this.setAlive(false);
+		} else if(health>=100){
+			this.health=100;
+		} else {
+		this.health=health;
+		}
+	}
+
+
 
 	public int getWeight() {
 		return weight;
@@ -37,10 +63,10 @@ public class Animal extends LifeForm{
 		this.food = food;
 	}
 	
-	public void eat(LifeForm l){
-		
-	}
-
+	@Override
+	public void eat(LifeForm l){}
+	
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
