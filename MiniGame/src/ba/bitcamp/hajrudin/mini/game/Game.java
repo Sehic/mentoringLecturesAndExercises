@@ -14,7 +14,12 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
 
+import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -69,6 +74,7 @@ public class Game extends JFrame {
 	private Rectangle speed = new Rectangle((int)(Math.random()*400),-300,20,20);
 	private Timer ts = new Timer (300, new AnimatedSpeed());
 
+	private BufferedImage background;
 	
 	
 	
@@ -120,7 +126,13 @@ public class Game extends JFrame {
 		game.addMouseListener(new MyTankMouse());
 		game.addFocusListener(new MyTankFocus());
 		
-		
+		 try {                
+	          background = ImageIO.read(new URL("http://i.ytimg.com/vi/irlHtZJl81Q/maxresdefault.jpg"));
+	       } catch (IOException ex) {
+	            System.out.println("aaaaaaa");
+	       }
+		 
+		 
 		
 		setTitle("Mini Game");
 		setSize(1000, 600);
@@ -158,6 +170,9 @@ public class Game extends JFrame {
 		@Override
 		protected void paintComponent(Graphics g) {
 			super.paintComponent(g);
+			
+			g.drawImage(background, game.getX()-30, game.getY()-30, null);
+			
 			g.drawRect(myTank.x, myTank.y, myTank.width, myTank.height);
 			
 			g.drawRect(newTank.x, newTank.y, newTank.width, newTank.height);
