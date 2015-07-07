@@ -1,6 +1,7 @@
 package ba.bitcamp.hajrudin.mini.game;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.GridLayout;
@@ -38,7 +39,7 @@ public class Game extends JFrame {
 	private JPanel loginPanel = new JPanel();
 	private JPanel hintPanel = new JPanel();
 	private JTextArea hintText = new JTextArea(
-			"Da bi pokrenuli igricu \n potrebno je da unesete Vas nick. \n Zatim pritisnite dugme \n START GAME! \n Uputstva za igranje: \n Pomocu tipki krecete se \n desno/lijevo. \n Tipka space sluzi \n za pucanje.");
+			"To start the game you need \n to enter your nickname. \n Then press \n ENTER THE GAME! \n Instructions for playing: \n Using the buttons you move to \n left/right. \n button Space uses \n to shoot. \n When every passed level \n speed of the opponent is increased. \n After a while, \n arrives bonus for you, \n so be careful to catch it.");
 	private JPanel login = new JPanel();
 	protected static JTextField nameText = new JTextField(17);
 	private JButton startGameButton = new JButton("ENTER GAME");
@@ -54,29 +55,38 @@ public class Game extends JFrame {
 	private int mySpeed = 5;
 	
 	private MyPanel game = new MyPanel();
-	//private Tank myTank = new Tank(800/2, 600-115, Color.BLUE);
-	//private Tank newTank = new Tank(800/2, 0, Color.RED);
+
 	private JLabel playLabel = new JLabel();
-	//private Bullet bullet = new Bullet(0, 0, Color.BLACK);
-	private Timer t = new Timer(500, new AnimatedTank());
+	
+	private Timer t = new Timer(400, new AnimatedTank());
 	private Timer t1 = new Timer(10, new Shot());
 	private Timer t2 = new Timer(50, new EnemyShot());
 	
-	private Rectangle myTank = new Rectangle(800/2, 600-115, 40, 60);
-	private Rectangle newTank = new Rectangle(800/2, -70, 40, 60);
+	private Rectangle myTank = new Rectangle(800/2, 600-115, 60, 60);
+	private Rectangle newTank = new Rectangle(800/2, -70, 60, 60);
 	
-	private Rectangle myBullet = new Rectangle(myTank.x+15, myTank.y,10,10);
+	private Rectangle myBullet = new Rectangle(myTank.x+23, myTank.y,15,15);
 	private boolean temp = false;
 	
-	private Rectangle newBullet = new Rectangle(newTank.x+15, newTank.y+50,10,10);
+	private Rectangle newBullet = new Rectangle(newTank.x+23, newTank.y+55,15,15);
 	private boolean temp1 = false;
 	
-	private Rectangle speed = new Rectangle((int)(Math.random()*400),-300,20,20);
+	private Rectangle speed = new Rectangle((int)(Math.random()*400),-300,20,21);
 	private Timer ts = new Timer (300, new AnimatedSpeed());
-
+	
+	private Font f = new Font("SERIF", Font.BOLD, 20);
+	private Color c = new Color(134,128,118);
+	private Color c1 = Color.DARK_GRAY; 
+	private Color c2 = Color.DARK_GRAY;
+	
+	private Font f1 = new Font("SERIF", Font.ITALIC, 17);
+	
 	private BufferedImage background;
-	
-	
+	private BufferedImage myPlane;
+	private BufferedImage myRocket;
+	private BufferedImage newPlane;
+	private BufferedImage newRocket;
+	private BufferedImage topSpeed;
 	
 	
 	public Game() {
@@ -88,19 +98,26 @@ public class Game extends JFrame {
 		loginPanel.setLayout(new GridLayout(2, 1));
 
 		loginPanel.add(hintPanel);
+		hintPanel.setBackground(c1);
 		hintPanel.setLayout(new BorderLayout());
 		hintPanel.setBorder(BorderFactory
 				.createTitledBorder("WELCOME TO MINI GAME !!!"));
 		hintText.setEditable(false);
 		hintPanel.add(hintText, BorderLayout.CENTER);
+		hintText.setBackground(c);
+		hintText.setFont(f1);
+		hintText.setForeground(Color.BLACK);
 
 		loginPanel.add(login);
+		login.setBackground(c1);
 		login.setLayout(new BorderLayout());
 		login.setBorder(BorderFactory.createTitledBorder("ENTER NICKNAME"));
 		login.add(nameText, BorderLayout.NORTH);
 		startGameButton.setEnabled(false);
 		login.add(startGameButton, BorderLayout.CENTER);
 		nameText.addKeyListener(new TextAction());
+		startGameButton.setBackground(c);
+		startGameButton.setOpaque(true);
 		startGameButton.addActionListener(new StartButtonAction());
 		
 		mainPanel.add(gamePanel, BorderLayout.CENTER);
@@ -110,25 +127,43 @@ public class Game extends JFrame {
 		gamePanel.setVisible(false);
 		gamePanel.add(infoPanel, BorderLayout.NORTH);
 		infoPanel.setLayout(new GridLayout(1, 4));
+		infoPanel.setBackground(c2);
+		lifesLabel.setFont(f);
+		lifesLabel.setForeground(Color.BLACK);
 		infoPanel.add(lifesLabel);
+		scoreLabel.setFont(f);
+		scoreLabel.setForeground(Color.BLACK);
 		infoPanel.add(scoreLabel);
+		levelLabel.setFont(f);
+		levelLabel.setForeground(Color.BLACK);
 		infoPanel.add(levelLabel);
 		infoPanel.add(showScoresButton);
+		showScoresButton.setBackground(c2);
+		showScoresButton.setForeground(Color.BLACK);
+		showScoresButton.setOpaque(true);
+		
 		showScoresButton.addActionListener(new ShowScoresButton());
 		
 		
 		gamePanel.add(game, BorderLayout.CENTER);
 		Font f = new Font("asd", Font.CENTER_BASELINE, 33);
 		playLabel.setFont(f);
-		playLabel.setText("KLICK TO PLAY");
+		playLabel.setForeground(Color.GREEN);
+		playLabel.setText("CLICK TO PLAY");
 		game.add(playLabel);
 		game.addKeyListener(new MyTankControl());
 		game.addMouseListener(new MyTankMouse());
 		game.addFocusListener(new MyTankFocus());
 		
 		 try {                
-	          background = ImageIO.read(new URL("http://i.ytimg.com/vi/irlHtZJl81Q/maxresdefault.jpg"));
-	       } catch (IOException ex) {
+	         
+			 background = ImageIO.read(new URL("http://img.brothersoft.com/screenshots/softimage/f/fantastic_space_star_animated_wallpaper-484709-1326876061.jpeg"));
+			 myPlane = ImageIO.read(new URL("http://s18.postimg.org/hcj11q0t1/1436280574_kspaceduel.png"));
+			 myRocket = ImageIO.read(new URL("http://s18.postimg.org/j7shr12fp/1436281130_rocket.png"));
+			 newPlane = ImageIO.read(new URL("http://s29.postimg.org/tadxmuldf/clipart_wolf_space_ship_256x256_b434.png"));
+			 newRocket = ImageIO.read(new URL("http://s2.postimg.org/m8uzzql45/rocket.png"));
+			 topSpeed = ImageIO.read(new URL("http://s14.postimg.org/q1ezs0359/1094748.png"));
+		 } catch (IOException ex) {
 	            System.out.println("aaaaaaa");
 	       }
 		 
@@ -147,8 +182,8 @@ public class Game extends JFrame {
 	public void actionPerformed(ActionEvent e) {
 		newTank.y = newTank.y+enemySpeed;
 		if (newTank.getY() > 485) {
-			newTank.y = -70;
-			newTank.x = ((int) (Math.random() * 730));
+			newTank.y = 0;
+			newTank.x = ((int) (Math.random() * 650));
 			String arr[] = lifesLabel.getText().split(" ");
 			int a = Integer.parseInt(arr[1]);
 			a-=1;
@@ -173,21 +208,25 @@ public class Game extends JFrame {
 			
 			g.drawImage(background, game.getX()-30, game.getY()-30, null);
 			
-			g.drawRect(myTank.x, myTank.y, myTank.width, myTank.height);
+			g.drawImage(myPlane, myTank.x, myTank.y,null);
 			
-			g.drawRect(newTank.x, newTank.y, newTank.width, newTank.height);
+			g.drawImage(newPlane, newTank.x, newTank.y,null);
 			
 			if(temp)
-				g.drawRect(myBullet.x, myBullet.y, myBullet.width, myBullet.height);
+				
+				g.drawImage(myRocket, myBullet.x, myBullet.y, null);
 			else
-				g.drawRect(myTank.x+15, myTank.y,10,10);
+			
+				g.drawImage(myRocket, myTank.x+23, myTank.y, null);
 			
 			if(temp1)
-				g.drawRect(newBullet.x, newBullet.y, newBullet.width, newBullet.height);
+			
+				g.drawImage(newRocket, newBullet.x, newBullet.y, null);
 			else
-				g.drawRect(newTank.x+15, newTank.y+50,10,10);
-				
-			g.drawRect(speed.x, speed.y, speed.width, speed.height);
+			
+				g.drawImage(newRocket, newTank.x+23, newTank.y+55,null);
+			
+			g.drawImage(topSpeed, speed.x, speed.y, null);
 			
 		}
 	} 
@@ -220,11 +259,11 @@ public class Game extends JFrame {
 				}
 			}else if(e.getKeyCode() == KeyEvent.VK_RIGHT){
 				myTank.x+=mySpeed;
-				if(myTank.x>=730){
+				if(myTank.x>=670){
 					myTank.x-=mySpeed;
 				}
 			}else if(e.getKeyCode() == KeyEvent.VK_SPACE){
-				myBullet.x=myTank.x+15;				
+				myBullet.x=myTank.x+23;				
 				t1.start();
 			}
 			game.repaint();
@@ -255,11 +294,11 @@ public class Game extends JFrame {
 				}
 				t2.stop();
 				temp1=false;
-				newTank.y = -70;
+				newTank.y = 0;
 				newTank.x = ((int) (Math.random() * 730));
 				myBullet.y=myTank.y;
-				newBullet.x=newTank.x+15;
-				newBullet.y=newTank.y+50;
+				newBullet.x=newTank.x+23;
+				newBullet.y=newTank.y+55;
 				temp=false;
 				t1.stop();
 			}
@@ -285,15 +324,17 @@ public class Game extends JFrame {
 			levelLabel.setText("Level: 1");
 			enemySpeed = 5;
 			mySpeed = 5;
-			myTank.x=800/2; myTank.y=600-115; myTank.width=40; myTank.height=60;
-			newTank.x=800/2; newTank.y=-70; newTank.width=40; newTank.height=60;
-			myBullet.x=myTank.x+15; myBullet.y=myTank.y; myBullet.width=10; myBullet.height=10;
+			myTank.x=800/2; myTank.y=600-115;
+			newTank.x=800/2; newTank.y=-70;
+			myBullet.x=myTank.x+23; myBullet.y=myTank.y;
 			temp = false;
-			newBullet = new Rectangle(newTank.x+15, newTank.y+50,10,10);
+			newBullet = new Rectangle(newTank.x+23, newTank.y+55,15,15);
 			temp1 = false;
 			speed.x = ((int)(Math.random()*400)); speed.y=-300;
-			t.start();
-			ts.start();
+			playLabel.setText("CLICK TO PLAY");
+			game.addKeyListener(new MyTankControl());
+			game.addMouseListener(new MyTankMouse());
+			game.addFocusListener(new MyTankFocus());
 		}else if(tt == JOptionPane.CANCEL_OPTION || tt == JOptionPane.NO_OPTION || tt == JOptionPane.CLOSED_OPTION){
 			game.setVisible(false);
 		}
@@ -312,15 +353,15 @@ public class Game extends JFrame {
 				if(a==0){
 				gameOver();
 				} else {
-					newBullet.x=newTank.x+15;
-					newBullet.y=newTank.y;
+					newBullet.x=newTank.x+23;
+					newBullet.y=newTank.y+55;
 					temp1=false;
 					game.repaint();
 				}
 			}
 			if(newBullet.y > 550){
-				newBullet.x=newTank.x+15;
-				newBullet.y=newTank.y+50;
+				newBullet.x=newTank.x+23;
+				newBullet.y=newTank.y+55;
 				temp1=false;
 			}
 			game.repaint();
