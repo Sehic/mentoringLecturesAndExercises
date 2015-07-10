@@ -1,24 +1,37 @@
 package ba.bitcamp.hajrudin.searching.and.sorting.exercise;
-
+/**
+ * Employee class contains employee name, surname
+ * ID, salary, gender, Date of birth from class Date
+ * @author hajrudin.sehic
+ *
+ */
 public class Employee {
 	
+	
+	//This counter use to generate ID for every new employee
 	private static int counter = 1001;
 	
 	private int ID;
 	private String name;
 	private String surname;
 	private String gender;
-	private int sallary;
+	private int salary;
 	private Date date;
 	
+	/**
+	 * Date class contains day, month and year which is used 
+	 * to represent Date of birth for every employee
+	 * @author hajrudin.sehic
+	 *
+	 */
 	public class Date{
 		private int day;
-		private int mounth;
+		private int month;
 		private int year;
 		
-		public Date(int day, int mounth, int year){
+		public Date(int day, int month, int year){
 			this.day=day;
-			this.mounth=mounth;
+			this.month=month;
 			this.year=year;
 		}
 
@@ -26,8 +39,8 @@ public class Employee {
 			return day;
 		}
 
-		public int getMounth() {
-			return mounth;
+		public int getMonth() {
+			return month;
 		}
 
 		public int getYear() {
@@ -37,7 +50,7 @@ public class Employee {
 		@Override
 		public String toString() {
 			String s = "";
-			s="Date of birth: "+this.day+"."+this.mounth+"."+this.year+"\n";
+			s="Date of birth: "+this.day+"."+this.month+"."+this.year+"\n";
 			return s;
 		}
 		
@@ -49,13 +62,13 @@ public class Employee {
 		
 	}
 	
-	public Employee(String name, String surname, String gender, int sallary, int day, int mounth, int year){
+	public Employee(String name, String surname, String gender, int salary, int day, int month, int year){
 		this.ID=counter++;
 		this.name=name;
 		this.surname=surname;
 		this.gender=gender;
-		this.sallary=sallary;
-		this.date = new Date(day, mounth, year);
+		this.salary=salary;
+		this.date = new Date(day, month, year);
 		
 	}
 
@@ -83,12 +96,12 @@ public class Employee {
 		return gender;
 	}
 
-	public int getSallary() {
-		return sallary;
+	public int getSalary() {
+		return salary;
 	}
 
-	public void setSallary(int sallary) {
-		this.sallary = sallary;
+	public void setSalary(int salary) {
+		this.salary = salary;
 	}
 
 	public Date getDate() {
@@ -99,12 +112,13 @@ public class Employee {
 		this.date = date;
 	}
 
+
 	@Override
 	public String toString() {
 		String s = "";
 		s = "Name: "+this.name+" "+this.surname+"\n";
 		s+="Gender: "+this.gender+"\n";
-		s+="Sallary: "+this.sallary+"\n";
+		s+="Sallary: "+this.salary+"\n";
 		s+=this.date.toString();
 		return s;
 	}

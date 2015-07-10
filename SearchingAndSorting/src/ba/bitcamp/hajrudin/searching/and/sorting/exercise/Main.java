@@ -26,7 +26,7 @@ public class Main {
 		
 		System.out.println(c1.toString());
 		
-		c1.sortBySallary();
+		c1.sortBySalary();
 		
 		System.out.println(c1.toString());
 		
@@ -43,6 +43,20 @@ public class Main {
 		Employee ee = c1.getEmployee(1001);
 		
 		System.out.println(ee);
+		
+			
+		for(Employee eee:c1.getEmployeeList()){
+			System.out.println(eee);
+		}
+		
+		c1.sortByAge();
+		
+		System.out.println(c1.toString());
+		
+		c1.sortByName();
+		
+		System.out.println(c1.toString());
+	
 		
 	}
 }
