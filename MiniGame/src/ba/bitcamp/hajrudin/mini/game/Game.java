@@ -1,7 +1,9 @@
 package ba.bitcamp.hajrudin.mini.game;
 
+import java.applet.AppletContext;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Desktop;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.GridLayout;
@@ -16,8 +18,11 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
-import java.io.File;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.net.URL;
 
 import javax.imageio.ImageIO;
@@ -31,7 +36,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.Timer;
 
-public class Game extends JFrame {
+public class Game extends JFrame{
 	private static final long serialVersionUID = 694570934410006456L;
 
 	private JPanel mainPanel = new JPanel();
@@ -39,10 +44,11 @@ public class Game extends JFrame {
 	private JPanel loginPanel = new JPanel();
 	private JPanel hintPanel = new JPanel();
 	private JTextArea hintText = new JTextArea(
-			"To start the game you need \n to enter your nickname. \n Then press \n ENTER THE GAME! \n Instructions for playing: \n Using the buttons you move to \n left/right. \n button Space uses \n to shoot. \n When every passed level \n speed of the opponent is increased. \n After a while, \n arrives bonus for you, \n so be careful to catch it.");
+			"To start the game you need \n to enter your nickname. \n Then press \n ENTER THE GAME! \n Instructions for playing: \n Using the buttons you move to \n left/right. \n Button Space uses \n to shoot. \n For every passed level \n speed of the opponent is increased. \n After a while, \n arrives bonus for you, \n so be careful to catch it.");
 	private JPanel login = new JPanel();
 	protected static JTextField nameText = new JTextField(17);
 	private JButton startGameButton = new JButton("ENTER GAME");
+	private JButton gitButton = new JButton("GIT");
 
 	private JPanel gamePanel = new JPanel();
 	private JPanel infoPanel = new JPanel();
@@ -53,6 +59,7 @@ public class Game extends JFrame {
 	
 	private int enemySpeed = 5;
 	private int mySpeed = 5;
+	private int bulletSpeed = 5;
 	
 	private MyPanel game = new MyPanel();
 
@@ -76,8 +83,8 @@ public class Game extends JFrame {
 	
 	private Font f = new Font("SERIF", Font.BOLD, 20);
 	private Color c = new Color(134,128,118);
-	private Color c1 = Color.DARK_GRAY; 
-	private Color c2 = Color.DARK_GRAY;
+	private Color c1 = Color.GRAY; 
+	private Color c2 = Color.GRAY;
 	
 	private Font f1 = new Font("SERIF", Font.ITALIC, 17);
 	
@@ -119,6 +126,19 @@ public class Game extends JFrame {
 		startGameButton.setBackground(c);
 		startGameButton.setOpaque(true);
 		startGameButton.addActionListener(new StartButtonAction());
+		login.add(gitButton, BorderLayout.SOUTH);
+		gitButton.setBackground(c);
+		gitButton.setOpaque(true);
+		gitButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				try {
+					Desktop.getDesktop().browse(new URL("https://github.com/Sehic/mentoringLecturesAndExercises/tree/master/MiniGame/src/ba/bitcamp/hajrudin/mini/game").toURI());
+				} catch (IOException | URISyntaxException e1) {
+					e1.printStackTrace();
+				}
+			}
+		});
 		
 		mainPanel.add(gamePanel, BorderLayout.CENTER);
 		
@@ -146,9 +166,9 @@ public class Game extends JFrame {
 		
 		
 		gamePanel.add(game, BorderLayout.CENTER);
-		Font f = new Font("asd", Font.CENTER_BASELINE, 33);
+		Font f = new Font("SERIF", Font.CENTER_BASELINE, 33);
 		playLabel.setFont(f);
-		playLabel.setForeground(Color.GREEN);
+		playLabel.setForeground(Color.RED);
 		playLabel.setText("CLICK TO PLAY");
 		game.add(playLabel);
 		game.addKeyListener(new MyTankControl());
@@ -157,7 +177,7 @@ public class Game extends JFrame {
 		
 		 try {                
 	         
-			 background = ImageIO.read(new URL("http://img.brothersoft.com/screenshots/softimage/f/fantastic_space_star_animated_wallpaper-484709-1326876061.jpeg"));
+			 background = ImageIO.read(new URL("http://www.axsysnav.eu/wp-content/uploads/2014/07/blue-space-wallpaper-8.png"));
 			 myPlane = ImageIO.read(new URL("http://s18.postimg.org/hcj11q0t1/1436280574_kspaceduel.png"));
 			 myRocket = ImageIO.read(new URL("http://s18.postimg.org/j7shr12fp/1436281130_rocket.png"));
 			 newPlane = ImageIO.read(new URL("http://s29.postimg.org/tadxmuldf/clipart_wolf_space_ship_256x256_b434.png"));
@@ -291,6 +311,7 @@ public class Game extends JFrame {
 					b+=1;
 					levelLabel.setText(ar[0]+" "+b);
 					enemySpeed += 5;
+					bulletSpeed+=1;
 				}
 				t2.stop();
 				temp1=false;
@@ -324,6 +345,7 @@ public class Game extends JFrame {
 			levelLabel.setText("Level: 1");
 			enemySpeed = 5;
 			mySpeed = 5;
+			bulletSpeed=5;
 			myTank.x=800/2; myTank.y=600-115;
 			newTank.x=800/2; newTank.y=-70;
 			myBullet.x=myTank.x+23; myBullet.y=myTank.y;
@@ -344,7 +366,7 @@ public class Game extends JFrame {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			temp1=true;
-			newBullet.y+=5;
+			newBullet.y+=bulletSpeed;
 			if(newBullet.intersects(myTank)){
 				String arr[] = lifesLabel.getText().split(" ");
 				int a = Integer.parseInt(arr[1]);
@@ -425,12 +447,50 @@ public class Game extends JFrame {
 	private class ShowScoresButton implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			TextIO.readFile("src/ba/bitcamp/hajrudin/mini/game/gameFile.txt");
+			/**TextIO.readFile("Resources/gameFile.txt");
 			String s = "";
 			while(!TextIO.eof()){
 				s+=TextIO.getln();
 				s+="\n";
-			}
+			}**/	
+			
+			  String fileName = "src/ba/bitcamp/hajrudin/mini/game/gameFile.txt";
+
+		        // This will reference one line at a time
+		        String line = null;
+		        String s = "";
+
+		        try {
+		            // FileReader reads text files in the default encoding.
+		            FileReader fileReader = 
+		                new FileReader(fileName);
+
+		            // Always wrap FileReader in BufferedReader.
+		            BufferedReader bufferedReader = 
+		                new BufferedReader(fileReader);
+
+		            while((line = bufferedReader.readLine()) != null) {
+		                System.out.println(line);
+		                s+=line;
+		            }    
+
+		            // Always close files.
+		            bufferedReader.close();            
+		        }
+		        catch(FileNotFoundException ex) {
+		            System.out.println(
+		                "Unable to open file '" + 
+		                fileName + "'");                
+		        }
+		        catch(IOException ex) {
+		            System.out.println(
+		                "Error reading file '" 
+		                + fileName + "'");                   
+		            // Or we could just do this: 
+		            // ex.printStackTrace();
+		        }
+		    
+			
 			JOptionPane.showMessageDialog(null, s);
 		}
 		
