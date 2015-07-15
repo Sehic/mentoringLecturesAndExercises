@@ -1,6 +1,5 @@
 package ba.bitcamp.hajrudin.mini.game;
 
-import java.applet.AppletContext;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Desktop;
@@ -18,12 +17,10 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.util.Scanner;
 
 import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
@@ -343,7 +340,7 @@ public class Game extends JFrame {
 	}
 
 	public void gameOver() {
-		writeScore();
+		//writeScore();
 		ts.stop();
 		t.stop();
 		t1.stop();
@@ -469,11 +466,29 @@ public class Game extends JFrame {
 	private class ShowScoresButton implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			TextIO.readFile("src/ba/bitcamp/hajrudin/mini/game/gameFile.txt");
+			/**
+			 * TextIO.readFile("src/ba/bitcamp/hajrudin/mini/game/gameFile.txt")
+			 * ; String s = ""; while (!TextIO.eof()) { s += TextIO.getln(); s
+			 * += "\n"; }
+			 **/
 			String s = "";
-			while (!TextIO.eof()) {
-				s += TextIO.getln();
-				s += "\n";
+			try {
+				Scanner input = new Scanner(System.in);
+				URL file1 = new URL(
+						"http://m.uploadedit.com/ba3e/1436965292591.txt");
+
+				input = new Scanner(file1.openStream());
+
+				while (input.hasNextLine()) {
+					String line = input.nextLine();
+					System.out.println(line);
+					s += line;
+					
+				}
+				input.close();
+
+			} catch (Exception ex) {
+				ex.printStackTrace();
 			}
 
 			JOptionPane.showMessageDialog(null, s);
