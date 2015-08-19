@@ -1,0 +1,33 @@
+#intro-paragraph {
+	font-size: 100px;
+	color: green;
+	text-align: center;
+}
+.about-text{
+	font-size: 23px;
+	color: white;
+}
+
+legend {
+	font-size: 25px;
+	color: white;
+}
+
+#choice {
+	font-size: 23px;
+	color: red;
+}
+li {
+	font-size: 33px;
+	color: blue;
+}
+
+#pics {
+	font-size: 33px;
+	color: blue;
+	text-align: left;
+}
+
+#links {
+	text-align: right;
+}
