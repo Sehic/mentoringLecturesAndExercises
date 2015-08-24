@@ -1,0 +1,35 @@
+.page_heading{
+	border: 1px solid black;
+}
+
+.wraper{
+	display: flex;
+}
+
+.content, .navigation {
+	border: 1px solid black;
+}
+
+.content {
+	order: 1;
+}
+
+.navigation {
+	flex-basis: 200px;
+	flex-shrink: 0;
+	order: 0;
+}
+
+#pic {
+	float: left;
+	margin: 5px 5px 5px 0;
+}
+
+.navigation a {
+	display: block;
+	padding-left: 10px;
+}
+
+.navigation a:hover{
+	background-color: red;
+}
