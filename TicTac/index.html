@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tic Tac</title>
+	<script type="text/javascript">
+	var count = 1;
+	var array = [];
+	function swapImage(id) {
+		
+		if(count%2==0){
+			document.getElementById(id).src = "xx.png";
+			array[id] = " X ";
+	}else{
+		document.getElementById(id).src = "oo.png";
+		array[id] = " O ";
+	}0
+	count+=1;
+	document.getElementById(id).setAttribute("onClick",null);
+
+		if(array[1] == " X " && array[2] == " X " && array[3] == " X ")
+  {
+    alert("You Win!")
+    location.reload();
+  } 
+  else if(array[4] == " X " && array[5] == " X "  && array[6] == " X ")
+  {
+    alert("You Win!")
+    location.reload();
+  } 
+  else if(array[7] == " X " && array[8] == " X " && array[9] == " X ") {
+    alert("You Win!")
+    location.reload();
+  }
+  else if(array[1] == " X " && array[5] == " X " && array[9] == " X ")
+  {
+    alert("You Win!")
+    location.reload();
+  }
+  else if(array[1] == " X " && array[4] == " X " && array[7] == " X ")
+  {
+    alert("You Win!")
+    location.reload();
+  }
+  else if(array[2] == " X " && array[5] == " X " && array[8] == " X ")
+  {
+    alert("You Win!")
+    location.reload();
+  }
+  else if(array[3] == " X " && array[6] == " X " && array[9] == " X ")
+  {
+    alert("You Win!")
+    location.reload();
+  }
+  else if(array[1] == " X " && array[5] == " X " && array[9] == " X ")
+  {
+    alert("You Win!")
+    location.reload();
+  }
+  else if(array[3] == " X " && array[5] == " X " && array[7] == " X ")
+  {
+    alert("You Win!")
+    location.reload();
+  }else if(array[1] == " O " && array[2] == " O " && array[3] == " O ")
+  {
+    alert("You Win!")
+    location.reload();
+  } 
+  else if(array[4] == " O " && array[5] == " O "  && array[6] == " O ")
+  {
+    alert("You Win!")
+    location.reload();
+  } 
+  else if(array[7] == " O " && array[8] == " O " && array[9] == " O ")
+  {
+    alert("You Win!")
+    location.reload();
+  }
+  else if(array[1] == " O " && array[5] == " O " && array[9] == " O ")
+  {
+    alert("You Win!")
+    location.reload();
+  }
+  else if(array[1] == " O " && array[4] == " O " && array[7] == " O ")
+  {
+    alert("You Win!")
+    location.reload();
+  }
+  else if(array[2] == " O " && array[5] == " O " && array[8] == " O ")
+  {
+    alert("You Win!")
+    location.reload();
+  }
+  else if(array[3] == " O " && array[6] == " O " && array[9] == " O ")
+  {
+    alert("You Win!")
+    location.reload();
+  }
+  else if(array[1] == " O " && array[5] == " O " && array[9] == " O ")
+  {
+    alert("You Win!")
+    location.reload();
+  }
+  else if(array[3] == " O " && array[5] == " O " && array[7] == " O ")
+  {
+    alert("You Win!")
+    location.reload();
+  }else if(array[1] != null && array[2] != null && array[3] != null && array[4] != null && array[5] != null && array[6] != null && array[7] != null && array[8] != null && array[9] != null){
+  	alert("Draw!")
+  	location.reload();
+  }
+		}
+		function showE(id) {
+			if(array[id] == null){
+			if(count%2==0){
+			document.getElementById(id).src = "x.jpg";
+	}else{
+		document.getElementById(id).src = "o.jpg";
+	}
+		}
+	}
+		function showL(id) {
+			if(array[id] == null){
+			document.getElementById(id).src = "white.gif";
+	}
+		}
+</script>
+<link rel="stylesheet" type="text/css" href="main.css">
+</head>
+
+<body>
+	<table>
+		<tr>
+			<td><img id="1" src="white.gif" name="pic" onClick="swapImage('1');" onMouseOver="showE('1');" onMouseLeave="showL('1');"/></td>
+			<td><img id="2" src="white.gif" name="pic" onClick="swapImage('2');" onMouseOver="showE('2');" onMouseLeave="showL('2');"/></td>
+			<td><img id="3" src="white.gif" name="pic" onClick="swapImage('3');" onMouseOver="showE('3');" onMouseLeave="showL('3');"/></td>
+		</tr>
+		<tr>
+			<td><img id="4" src="white.gif" name="pic" onClick="swapImage('4');" onMouseOver="showE('4');" onMouseLeave="showL('4');"/></td>
+			<td><img id="5" src="white.gif" name="pic" onClick="swapImage('5');" onMouseOver="showE('5');" onMouseLeave="showL('5');"/></td>
+			<td><img id="6" src="white.gif" name="pic" onClick="swapImage('6');" onMouseOver="showE('6');" onMouseLeave="showL('6');"/></td>
+		</tr>
+		<tr>
+			<td><img id="7" src="white.gif" name="pic" onClick="swapImage('7');" onMouseOver="showE('7');" onMouseLeave="showL('7');"/></td>
+			<td><img id="8" src="white.gif" name="pic" onClick="swapImage('8');" onMouseOver="showE('8');" onMouseLeave="showL('8');"/></td>
+			<td><img id="9" src="white.gif" name="pic" onClick="swapImage('9');" onMouseOver="showE('9');" onMouseLeave="showL('9');"/></td>
+		</tr>
+	</table>
+</body>
+</html>
